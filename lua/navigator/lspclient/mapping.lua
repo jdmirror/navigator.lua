@@ -10,7 +10,6 @@ end
 if vim.diagnostic == nil then
   util.error('Please update nvim to 0.6.1+')
 end
-local double = { '╔', '═', '╗', '║', '╝', '═', '╚', '║' }
 local single = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' }
 -- TODO https://github.com/neovim/neovim/pull/16591 use vimkeymap.set/del
 -- LuaFormatter off
@@ -530,8 +529,8 @@ function M.setup(attach_opts)
   })
 
   local border_style = single
-  if _NgConfigValues.border == 'double' then
-    border_style = double
+  if _NgConfigValues.border then
+    border_style = _NgConfigValues.border
   end
   if _NgConfigValues.lsp.hover then
     vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(require('navigator.hover').handler, {
