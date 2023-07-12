@@ -57,7 +57,7 @@ function M.new_list_view(opts)
 
   opts.external = config.external
   opts.preview_lines_before = 4
-  opts.title = opts.title or 'Navigator Searcher'
+  opts.title = not config.hide_title and (opts.title or 'Navigator Searcher') or nil
   if _NgConfigValues.debug then
     local logopts = { items = {}, data = {} }
     logopts = vim.tbl_deep_extend('keep', logopts, opts)

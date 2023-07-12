@@ -18,12 +18,13 @@ _NgConfigValues = {
   preview_height = 0.38,
   preview_lines = 40, -- total lines in preview screen
   preview_lines_before = 5, -- lines before the highlight line
-  prompt_extra_line = false,
+  prompt_extra_line = false, -- padding for prompt
   default_mapping = true,
   keymaps = {}, -- e.g keymaps={{key = "GR", func = vim.lsp.buf.references}, } this replace gr default mapping
   external = nil, -- true: enable for goneovim multigrid otherwise false
 
   border = 'single', -- border style, can be one of 'none', 'single', 'double', "shadow"
+  hide_title = false, -- show title
   lines_show_prompt = 10, -- when the result list items number more than lines_show_prompt,
   -- fuzzy finder prompt will be shown
   combined_attach = 'both', -- both: use both customized attach and navigator default attach, mine: only use my attach defined in vimrc
