@@ -549,6 +549,7 @@ M.get_keymaps_help = function()
     loc = 'top_center',
     border = 'none',
     prompt = true,
+    extra_line = _NgConfigValues.prompt_extra_line,
     enter = true,
     rect = { height = 24, width = 50 },
     data = key_maps_help,

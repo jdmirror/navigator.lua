@@ -33,6 +33,7 @@ function M.new_list_view(opts)
     opts.data = require('navigator.render').prepare_for_render(items, opts)
   end
   opts.border = config.border or 'shadow'
+  opts.extra_line = config.prompt_extra_line
   if vim.fn.hlID('TelescopePromptBorder') > 0 then
     opts.border_hl = 'TelescopePromptBorder'
     opts.list_hl = 'TelescopeNormal'

@@ -55,6 +55,7 @@ function M.workspace_symbol_live()
     loc = 'top_center',
     transparency = 50,
     prompt = true,
+    extra_line = _NgConfigValues.prompt_extra_line,
     on_confirm = function(item)
       vim.defer_fn(function()
         if item and item.name then

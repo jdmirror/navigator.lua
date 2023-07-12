@@ -18,6 +18,7 @@ _NgConfigValues = {
   preview_height = 0.38,
   preview_lines = 40, -- total lines in preview screen
   preview_lines_before = 5, -- lines before the highlight line
+  prompt_extra_line = false,
   default_mapping = true,
   keymaps = {}, -- e.g keymaps={{key = "GR", func = vim.lsp.buf.references}, } this replace gr default mapping
   external = nil, -- true: enable for goneovim multigrid otherwise false
