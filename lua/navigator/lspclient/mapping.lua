@@ -159,7 +159,7 @@ local key_maps = {
   },
 }
 
-if _NgConfigValues.lsp.hover then
+if _NgConfigValues.lsp.hover.enable then
   table.insert(key_maps, { key = 'K', func = vim.lsp.buf.hover, desc = 'hover' })
 end
 
@@ -532,7 +532,7 @@ function M.setup(attach_opts)
   if _NgConfigValues.border then
     border_style = _NgConfigValues.border
   end
-  if _NgConfigValues.lsp.hover then
+  if _NgConfigValues.lsp.hover.enable then
     vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(require('navigator.hover').handler, {
       border = border_style,
     })
