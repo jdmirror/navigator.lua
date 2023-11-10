@@ -1,4 +1,4 @@
-    12 require('nvim-autopairs').setup{
+# Navigator
 
 - Source code analysis and navigate tool
 
@@ -102,7 +102,11 @@ variable is:
 
 - ccls call hierarchy (Non-standard `ccls/call` API) supports
 
-- Syntax folding based on treesitter or LSP_fold folding algorithm. (It behaves similar to vs-code); dedicated comment folding.
+- Incorporates a modified folding algorithm based on treesitter or LSP_fold, providing a user experience comparable to Visual Studio Code.
+    - Ensures end or closing brackets remain visible.
+    - Features specific functionality for comment folding.
+    - Enables the display of folded lines.
+    - Includes syntax highlighting capabilities (supported in Neovim version 0.10.x and above).
 
 - Treesitter symbols sidebar, LSP document symbole sidebar. Both with preview and folding
 
@@ -244,7 +248,7 @@ Nondefault configuration example:
 ```lua
 
 require'navigator'.setup({
-  debug = false, -- log output, set to true and log path: ~/.cache/nvim/gh.log 
+  debug = false, -- log output, set to true and log path: ~/.cache/nvim/gh.log
                  -- slowdownd startup and some actions
   width = 0.75, -- max width ratio (number of cols for the floating window) / (window width)
   height = 0.3, -- max list window height, 0.3 by default
@@ -557,7 +561,7 @@ LspDiagnosticsXXX are used for diagnostic. Please check highlight.lua and dochig
 
 The plugin can be loaded lazily (packer `opt = true` ), And it will check if optional plugins existance and load those plugins only if they existed.
 
-The terminal will need to be able to output nerdfont(v.3.0+) and emoji correctly. I am using Kitty with nerdfont (Victor Mono).
+The terminal will need to be able to output nerdfont and emoji correctly. I am using Kitty with nerdfont (Victor Mono).
 
 ## Integrate with mason (williamboman/mason.nvim)
 
@@ -880,14 +884,6 @@ You can in place edit your code in floating window
 Treetsitter symbols in all buffers
 ![treesitter](https://user-images.githubusercontent.com/1681295/118734953-cc6eba00-b882-11eb-9db8-0a052630d57e.jpg?raw=true)
 
-### Signature help
-
-Improved signature help with current parameter highlighted
-
-![signature](https://github.com/ray-x/files/blob/master/img/navigator/signature_with_highlight.jpg?raw=true)
-
-![show_signature](https://github.com/ray-x/files/blob/master/img/navigator/show_signnature.gif?raw=true "show_signature")
-
 ### Call hierarchy (incomming/outgoing calls)
 
 ![incomming_calls](https://user-images.githubusercontent.com/1681295/142348079-49b71486-4f16-4f10-95c9-483aad11c262.jpg)
@@ -910,19 +906,40 @@ Codelens for C++/ccls. Symbol reference
 
 ![nerdfont](https://github.com/ray-x/files/blob/master/img/navigator/icon_nerd.jpg?raw=true)
 
-### VS-code style folding with treesitter
+### Enhanced Folding Inspired by VS Code Using Treesitter
 
-Folding is using a hacked version of treesitter folding. (option: ts_fold)
+This feature introduces an advanced folding mechanism based on a customized variant of the treesitter folding algorithm (enabled with the ts_fold option).
 
-#### folding function
+#### function folding
+
+The `end` delimiter of a function is recognized as a distinct
 
 ![image](https://user-images.githubusercontent.com/1681295/148491596-6cd6c507-c157-4536-b8c4-dc969436763a.png)
 
-#### folding comments
+#### comments folding
 
-Multiline comments can be folded as it is treated as a block
+Multiline comments are recognized as distinct blocks and can be collapsed seamlessly, simplifying navigation through extensive comments.
 
 ![image](https://user-images.githubusercontent.com/1681295/148491845-5ffb18ea-f05d-4229-aec3-aa635b3de814.png)
+
+#### Condition (if) block folding with syntax highlight
+
+syntax highlight require treesitter and neovim 0.10 +
+
+<img width="602" alt="image" src="https://user-images.githubusercontent.com/1681295/281574649-ecc911d3-bfe2-446a-9eb7-318600b37c30.png">
+
+#### Function folding with syntax highlight
+
+<img width="550" alt="image"
+src="https://user-images.githubusercontent.com/1681295/281575203-3d08256a-7592-4bea-8e6a-c747023ff3a3.png">
+
+### Signature help
+
+Improved signature help with current parameter highlighted
+
+![signature](https://github.com/ray-x/files/blob/master/img/navigator/signature_with_highlight.jpg?raw=true)
+
+![show_signature](https://github.com/ray-x/files/blob/master/img/navigator/show_signnature.gif?raw=true "show_signature")
 
 ## Debugging the plugin
 
