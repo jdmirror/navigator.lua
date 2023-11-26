@@ -490,11 +490,6 @@ function M.setup(attach_opts)
     if hassig then
       sig.setup(_NgConfigValues.signature_help_cfg or {})
     end
-  else
-    vim.lsp.handlers['textDocument/signatureHelp'] =
-      vim.lsp.with(require('navigator.signature').signature_handler, {
-        border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
-      })
   end
 
   api.nvim_create_autocmd({ 'BufWritePre' }, {
