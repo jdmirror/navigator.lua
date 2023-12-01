@@ -39,11 +39,12 @@ return {
   'texlab',
   'clojure_lsp',
   'elixirls',
+  'ruff_lsp',
   'sourcekit',
   'fsautocomplete',
   'vls',
   'hls',
   'tflint',
   'terraform_lsp',
-  'zls'
+  'zls',
 }
